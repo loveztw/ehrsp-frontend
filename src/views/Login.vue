@@ -1,40 +1,32 @@
 <template>
-  <el-container :style="height">
-    <!-- <el-header>Header 默认 height: 60px;</el-header> -->
-    <!-- <el-container :style="height">
-      <el-aside width="200px">Aside</el-aside> -->
+  <el-container :style="backgroundStyle">
       <el-main>
-        <!-- <el-col>
-          <span>Main</span>
-        </el-col>
-        <el-col>
-          <span>height:window.innerHeight - 120</span>
-        </el-col>
-        <el-col>
-          <span>(右侧通常会有上下滚动栏,120 + 16左右就会消失)</span>
-        </el-col> -->
         <div class='login-box'>
-          <div class='login-header'></div>
+          <div class='login-header'>
+            <h3 style="margin-left: 30px">登 录</h3>
+          </div>
           <div class='login-body'>
-            <el-form>
-              <el-form-item>
-                <el-input type="text" placeholder="电话号码"/>
-              </el-form-item>
-              <el-form-item>
-                <div style="float: left">
-                  <el-input type="text" placeholder="验证码" style="width: 200px;"/>
-                  <el-button style="margin-left: 33px;">发送验证码</el-button>
-                </div>
-              </el-form-item>
-              <el-form-item>
-                <el-button type="primary" v-on:click="onSubmit('loginForm')" style="width: 100%;">登录</el-button>
-              </el-form-item>
-              <el-form-item>
-                <div style="float: left; color: blue;">
-                    <span>用户名密码登录</span>
-                </div>
-              </el-form-item>  
-            </el-form>
+            <div class='login-body-inner'>
+              <el-form>
+                <el-form-item>
+                  <el-input type="text" placeholder="电话号码"/>
+                </el-form-item>
+                <el-form-item>
+                  <div style="float: left">
+                    <el-input type="text" placeholder="验证码" style="width: 140px;"/>
+                    <el-button style="margin-left: 33px;">发送验证码</el-button>
+                  </div>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary" v-on:click="onSubmit('loginForm')" style="width: 100%;">登录</el-button>
+                </el-form-item>
+                <el-form-item>
+                  <div style="float: left; color: blue;">
+                      <span>用户名密码登录</span>
+                  </div>
+                </el-form-item>
+              </el-form>
+            </div>
           </div>
         </div>
 
@@ -45,29 +37,21 @@
 </template>
 
 <style>
-  .el-header, .el-footer {
-    background-color: #B3C0D1;
+  /* .el-header, .el-footer {
     color: #333;
     text-align: center;
     line-height: 60px;
-  }
-
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    text-align: center;
-    line-height: 200px;
-  }
+  } */
 
   .el-main {
-    background-color: #E9EEF3;
+    /* background-color: #E9EEF3; */
     color: #333;
     text-align: center;
     line-height: 160px;
   }
   .login-box {
-      /* background-color: red; */
-      height: 300px;
+      background-color: white;
+      height: 350px;
       width: 350px;
       margin: 0 auto; /* 水平居中 */
       position: relative; /*脱离文档流*/
@@ -75,9 +59,19 @@
       margin-top: -150px; /*相对偏移*/
   }
 
+  .login-body-inner {
+    /* background-color: blue; */
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+
   .login-header {
-    background-color: aquamarine;
-    height: 100px;
+    background-color: rgb(229, 232, 233);
+    height: 60px;
+    line-height: 60px;
+    text-align: left;
   }
 
   /* 去掉浏览器右侧滚动条 */
@@ -93,8 +87,11 @@
 export default {
   data () {
     return {
-      height: {
-        height: window.innerHeight + 'px'
+      backgroundStyle: {
+        height: window.innerHeight + 'px',
+        background: 'url(' + require('../assets/img/login_bg.jpg') + ') no-repeat center center',
+        // backgroundRepeat: 'no-repeat'
+        backgroundSize: '100%'
       }
     }
   }
