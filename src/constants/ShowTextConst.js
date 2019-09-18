@@ -1,0 +1,9 @@
+
+// 显示文本常量定义
+const LOGIN_SHOW_SWITCH_VERIFYCODE = '手机验证码登录'
+const LOGIN_SHOW_SWITCH_PASSWORD = '密码登录'
+
+export default{
+  LOGIN_SHOW_SWITCH_VERIFYCODE,
+  LOGIN_SHOW_SWITCH_PASSWORD
+}
