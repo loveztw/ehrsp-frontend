@@ -1,41 +1,49 @@
 <template>
-    <el-container>
-        <el-header height="200px">
-            <div class="header-top"></div>
-            <div class="header-bottom"></div>
-            <el-menu mode="horizontal">
-                <el-menu-item index="1">
-                    <span class="menu-text">首页</span>
-                </el-menu-item>
-                <el-menu-item index="2">
-                    <span class="menu-text">新闻中心</span>
-                </el-menu-item>
-            </el-menu>
-        </el-header>
-    </el-container>
+  <div class="my-header">
+    <el-header height="30px" class="header-top"></el-header>
+    <el-header height="120px" class="header-bottom"></el-header>
+    <el-menu mode="horizontal">
+        <el-menu-item index="1">
+            <span class="menu-text">首页</span>
+        </el-menu-item>
+        <el-menu-item index="2">
+            <span class="menu-text">新闻动态</span>
+        </el-menu-item>
+        <el-menu-item index="3">
+            <span class="menu-text">政务公开</span>
+        </el-menu-item>
+        <el-menu-item index="4">
+            <span class="menu-text">办事服务</span>
+        </el-menu-item>
+        <el-menu-item index="5">
+            <span class="menu-text">互动交流</span>
+        </el-menu-item>
+        <el-menu-item index="6">
+            <span class="menu-text">城市名片</span>
+        </el-menu-item>
+    </el-menu>
+  </div>
 </template>
 
 <style scoped>
-  .el-header {
-    background-color: #B3C0D1;
-    /* line-height: 60px; */
-  }
-
   .header-top {
     background-color: yellow;
-    height: 15%;
   }
 
   .header-bottom {
     background-color: blue;
-    height: 50%;
   }
 
   .el-menu {
-    background-color: grey;
-    width: 80%;
+    /* background-color: grey; */
+    width: 100%;
     margin: 0 auto; /* 水平居中 */
 
+  }
+
+  .el-menu-item {
+    width: 205px;
+    text-align: center;
   }
 
   .menu-text {

@@ -6,13 +6,14 @@
 
 <style>
   .el-footer {
+    /* background-color: greenyellow; */
     color: black;
     font-size:  small;
     text-align: center;
     line-height: 60px;
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 99%;
   }
 
 </style>
