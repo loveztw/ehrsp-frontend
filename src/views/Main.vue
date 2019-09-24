@@ -6,14 +6,20 @@
         <div class="line1">
           <div class="slide">
             <el-carousel>
-              <el-carousel-item>abc</el-carousel-item>
+              <el-carousel-item style="background-color: grey">abc</el-carousel-item>
+              <el-carousel-item style="background-color: grey">ddd</el-carousel-item>
             </el-carousel>
           </div>
           <div class="tab">
-            <el-tabs>
+            <el-tabs style="margin: 10px">
               <el-tab-pane label="国务院" name="first">
-                <el-table :data="tableData" :show-header="false" max-height="300px" style="width: 100%">
-                  <el-table-column lable="标题" prop="title" width="300"></el-table-column>
+                <el-table :data="tableData" :show-header="false" max-height="280px" size="small" style="width: 100%; margin-top: -10px">
+                  <el-table-column lable="标题" prop="title" width="470">
+                  <template slot-scope="scope">
+                    <i class="el-icon-news"></i>
+                    <span style="margin-left: 10px">{{ scope.row.title }}</span>
+                  </template>
+                  </el-table-column>
                   <el-table-column lable="时间" prop="date" width="100"></el-table-column>
                 </el-table>
               </el-tab-pane>
@@ -22,6 +28,12 @@
               <el-tab-pane label="通知公告" name="fourth">通知公告</el-tab-pane>
             </el-tabs>
           </div>
+        </div>
+        <div class="line2">
+          <div class="picbox"></div>
+          <div class="picbox"></div>
+          <div class="picbox"></div>
+          <div class="picbox"></div>
         </div>
       </el-main>
     </el-container>
@@ -44,7 +56,27 @@
   .line1 {
     display: flex;
     justify-content: space-between;
-    height: 400px;
+    height: 303px;
+    /* elmain左右对齐 */
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .line2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100px;
+    /* elmain左右对齐 */
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .picbox {
+    background-color: yellow;
+    width: 300px;
+    height: 80px;
+    margin-top: 20px;
   }
 
   .slide {
@@ -54,6 +86,9 @@
   .tab {
     /* height: 100%; */
     width: 49%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(187, 240, 250);
   }
 
 </style>
@@ -75,7 +110,7 @@ export default {
         margin: '0 auto' /* 水平居中 */
       },
       tableData: [{
-        title: '我的文章1',
+        title: '我的文章11',
         date: '2019-09-01'
       }, {
         title: '我的文章2',
