@@ -64,6 +64,7 @@
 </style>
 
 <script>
+let Base64 = require('js-base64').Base64
 
 export default {
   name: 'LoginBox',
@@ -113,6 +114,9 @@ export default {
       var postUrl = ''
       if (this.loginObj.loginType === 0) {
         postUrl = `${this.baseURL}/user/login-vcode?mobile=${this.loginid}&verifyCode=${this.token}`
+      } else {
+        var base64Token = Base64.encode(this.token)
+        postUrl = `${this.baseURL}/user/login-pass?loginid=${this.loginid}&password=${base64Token}`
       }
 
       this.axios({
@@ -127,10 +131,14 @@ export default {
           var status = response.data.status
           if (status !== 200) {
             var errCode = response.data.data.code
-            if (errCode === 0x9006) {
-              alert('用户没有注册')
+            if (errCode === 0x9008) {
+              alert('电话号码没有注册')
+            } else if (errCode === 0x9009) {
+              alert('邮箱没有注册')
             } else if (errCode === 0x9004) {
               alert('无效的验证码')
+            } else if (errCode === 0x9010) {
+              alert('密码错误')
             } else {
               alert('内部错误')
             }
